@@ -1,0 +1,23 @@
+SELECT 
+zp.rolaPracownika, 
+z.idProjektu, 
+z.nazwa, 
+z.opis, 
+z.status, 
+z.dataR, 
+z.dataZ, 
+z.czasTrwania, 
+pr.adres 
+
+FROM 
+zadania AS z, 
+zadania_pracownika AS zp , 
+pracownicy AS p, 
+projekty AS pr 
+
+WHERE 
+zp.idPracownika = $ids AND 
+ 
+zp.idZadania = z.id AND 
+z.idProjektu = pr.id AND 
+pr.idKierownika = p.id
